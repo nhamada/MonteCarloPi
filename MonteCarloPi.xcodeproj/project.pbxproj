@@ -11,6 +11,7 @@
 		3502319D1CF4A55E0050D992 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3502319C1CF4A55E0050D992 /* ViewController.swift */; };
 		3502319F1CF4A55E0050D992 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3502319E1CF4A55E0050D992 /* Assets.xcassets */; };
 		350231A21CF4A55E0050D992 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 350231A01CF4A55E0050D992 /* Main.storyboard */; };
+		350231AA1CF4A6C20050D992 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 350231A91CF4A6C20050D992 /* Shaders.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		3502319E1CF4A55E0050D992 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		350231A11CF4A55E0050D992 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		350231A31CF4A55E0050D992 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		350231A91CF4A6C20050D992 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				3502319A1CF4A55E0050D992 /* AppDelegate.swift */,
 				3502319C1CF4A55E0050D992 /* ViewController.swift */,
+				350231A91CF4A6C20050D992 /* Shaders.metal */,
 				3502319E1CF4A55E0050D992 /* Assets.xcassets */,
 				350231A01CF4A55E0050D992 /* Main.storyboard */,
 				350231A31CF4A55E0050D992 /* Info.plist */,
@@ -131,6 +134,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				350231AA1CF4A6C20050D992 /* Shaders.metal in Sources */,
 				3502319D1CF4A55E0050D992 /* ViewController.swift in Sources */,
 				3502319B1CF4A55E0050D992 /* AppDelegate.swift in Sources */,
 			);
