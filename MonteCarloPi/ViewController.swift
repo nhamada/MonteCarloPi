@@ -18,15 +18,21 @@ class ViewController: NSViewController {
     
     let inputDataSize = 10_000_000
 
+    @IBOutlet weak var resultTextField: NSTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear() {
-        super.viewDidAppear()
-        
+    override var representedObject: AnyObject? {
+        didSet {
+        // Update the view, if already loaded.
+        }
+    }
+    
+    @IBAction func startCalculation(_ sender: NSButton) {
         let start = NSDate()
         
         let metalConfiguration = initMetal()
@@ -47,11 +53,11 @@ class ViewController: NSViewController {
         let threadsPerGroup = MTLSize(width: 32, height: 1, depth: 1)
         let numThreadgroups = MTLSize(width: (inVector.count + 31) / 32, height: 1, depth: 1)
         metalConfiguration.computeCommandEncoder.dispatchThreadgroups(numThreadgroups, threadsPerThreadgroup: threadsPerGroup)
-
+        
         metalConfiguration.computeCommandEncoder.endEncoding()
         metalConfiguration.commandBuffer.commit()
         metalConfiguration.commandBuffer.waitUntilCompleted()
-
+        
         let data = NSData(bytesNoCopy: outVectorBuffer.contents(), length: outVector.byteLength, freeWhenDone: false)
         var finalResultArray = [Bool](repeating: false, count: outVector.count)
         data.getBytes(&finalResultArray, length: outVector.byteLength)
@@ -65,14 +71,8 @@ class ViewController: NSViewController {
         let end = NSDate()
         let elapsed = end.timeIntervalSince(start)
         
-        print(pi)
-        print(elapsed)
-    }
-
-    override var representedObject: AnyObject? {
-        didSet {
-        // Update the view, if already loaded.
-        }
+        NSLog("\(elapsed)")
+        resultTextField.stringValue = "\(pi)"
     }
     
     private func initMetal() -> (device: MTLDevice, commandQueue: MTLCommandQueue, library: MTLLibrary, commandBuffer: MTLCommandBuffer, computeCommandEncoder: MTLComputeCommandEncoder) {

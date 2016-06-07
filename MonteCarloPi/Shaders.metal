@@ -14,5 +14,5 @@ kernel void monteCarloPi(const device float2 *inVector [[ buffer(0) ]],
                          uint id [[ thread_position_in_grid ]])
 {
     float2 loc = inVector[id];
-    outVector[id] = (sqrt(loc.x * loc.x + loc.y * loc.y) < 1.0) ? true  : false;
+    outVector[id] = (length_squared(loc) < 1.0) ? true  : false;
 }
